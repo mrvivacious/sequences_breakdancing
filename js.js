@@ -1,11 +1,16 @@
 // √ Store moves in an array
 // √ Add input field to enter moves
 // √ Add button to save moves
-// Load moves from local storage
-// Save moves to local storage
+// √ Load moves from local storage
+// √ Save moves to local storage
+// √ Store move in a dictionary to make things easier
+
+// basically, CRUD, and the data is the MOVES + COMBOS.
+//  ...only took us a few commits to figure this out...
+
 // Save combos to local storage
 // Pretty print moves and combos
-// Maybe stores moves in a dictionary to help prevent users adding duplicates
+// Prevent users adding duplicates
 //  + when a duplicate is added, highlight the move so the user is aware
 // Show the moves as tiles with "X" in the corner for move deletion
 // Ability to select which moves to use in the combo and which to leave out
@@ -17,11 +22,6 @@
 
 console.log("js loaded");
 
-// on page load
-// check for moves in storage
-// if moves exist, load them onto the page
-// if moves are empty, save an empty dict and show "no moves yet" text
-
 setupLocalStorage();
 
 // TODO untested
@@ -31,14 +31,14 @@ function setupLocalStorage() {
   if (movesFromStorage === null) {
     console.log("no moves");
   } else {
+    // https://stackoverflow.com/questions/23805377
     movesFromStorage = JSON.parse(movesFromStorage);
     let moves = Object.keys(movesFromStorage);
+
     document.getElementById("p_moves").innerText = moves;
     console.log(movesFromStorage);
   }
 }
-
-// let moves = ["1 step", "2 step", "toprock basic", "toprock 3 step", "backspin", "turtle freeze"]; // todo: grab from local storage
 
 function saveMoveToLocalStorage(aMove) {
   let movesFromStorage = localStorage.getItem("moves");
@@ -61,8 +61,6 @@ function saveMoveToLocalStorage(aMove) {
 }
 
 let p_moves = document.getElementById("p_moves");
-let p_combo = document.getElementById("p_combo");
-let btn_generate = document.getElementById("btn_generate");
 let btn_save = document.getElementById("btn_save");
 
 btn_save.addEventListener("click", () => {
@@ -81,27 +79,4 @@ btn_save.addEventListener("click", () => {
     p_moves.innerText = keys;
     document.getElementById("input_move").value = "";
   }
-});
-
-// Put this in its own file...
-btn_generate.addEventListener("click", () => {
-  let input = document.getElementById("input_quantity").value;
-  let numberOfMoves = parseInt(input);
-
-  let combo = [];
-
-  for (let i = 0, n = numberOfMoves; i < n; i++) {
-    let movesFromStorage = JSON.parse(localStorage.getItem("moves"));
-    if (movesFromStorage === null) {
-      return;
-    }
-
-    let moveList = Object.keys(movesFromStorage);
-    let randomNumber = Math.floor(Math.random() * moveList.length);
-    let randomMove = moveList[randomNumber];
-
-    combo.push(randomMove);
-  }
-
-  p_combo.innerText = combo;
 });
