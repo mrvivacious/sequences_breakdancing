@@ -91,8 +91,12 @@ btn_generate.addEventListener("click", () => {
   let combo = [];
 
   for (let i = 0, n = numberOfMoves; i < n; i++) {
-    // todo adapt code to dictionary implementation
-    let moveList = Object.keys(moves);
+    let movesFromStorage = JSON.parse(localStorage.getItem("moves"));
+    if (movesFromStorage === null) {
+      return;
+    }
+
+    let moveList = Object.keys(movesFromStorage);
     let randomNumber = Math.floor(Math.random() * moveList.length);
     let randomMove = moveList[randomNumber];
 
