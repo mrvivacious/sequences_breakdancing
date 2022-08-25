@@ -5,10 +5,10 @@ function saveCombo(combo) {
 
   if (combos === null) {
     let initialComboDict = { combo: true };
-    setCombosWihDict(initialComboDict);
+    setCombosWithDict(initialComboDict);
   } else {
     combos[combo] = true;
-    setCombosWihDict(combos);
+    setCombosWithDict(combos);
   }
 }
 
@@ -20,7 +20,7 @@ function getCombosAsList() {
   return Object.keys(getCombosAsDict());
 }
 
-function setCombosWihDict(combosDict) {
+function setCombosWithDict(combosDict) {
   localStorage.setItem("combos", JSON.stringify(combosDict));
 }
 
