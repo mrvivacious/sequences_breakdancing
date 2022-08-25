@@ -1,5 +1,4 @@
 // CRUD
-
 function saveMove(move) {
   let moves = getMovesAsDict(); // todo needs testing
 
@@ -18,6 +17,9 @@ function getMovesAsDict() {
 }
 
 function getMovesAsList() {
+  if (getMovesAsDict() === null) {
+    return null;
+  }
   return Object.keys(getMovesAsDict());
 }
 
@@ -31,14 +33,3 @@ function deleteMoves(moveToDelete) {
   delete moves[moveToDelete];
   setMovesWithDict(moves);
 }
-
-/* 
-  
-  user can generate combos
-  save a combo (_createCombo)  √
-  view saved combos (_readCombos) √
-  delete a saved combo (_deleteCombo) √
-  
-  update? ie. remove a move from a combo _editCombo? maybe a future feature tbh.
-  
-  */
