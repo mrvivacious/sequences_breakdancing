@@ -49,23 +49,7 @@ function setupLocalStorage() {
 }
 
 function saveMoveToLocalStorage(aMove) {
-  let movesFromStorage = localStorage.getItem("moves");
-
-  if (movesFromStorage === null) {
-    let moveObject = {
-      [aMove]: true,
-    };
-    let moveData = JSON.stringify(moveObject);
-
-    localStorage.setItem("moves", moveData);
-  } else {
-    let moves = JSON.parse(movesFromStorage);
-    moves[aMove] = true;
-
-    let moveData = JSON.stringify(moves);
-
-    localStorage.setItem("moves", moveData);
-  }
+  saveMove(aMove);
 }
 
 let p_moves = document.getElementById("p_moves");
@@ -81,10 +65,7 @@ btn_save.addEventListener("click", () => {
     // get all moves and add this move to all moves and save
     saveMoveToLocalStorage(move);
 
-    let movesFromStorage = JSON.parse(localStorage.getItem("moves"));
-    let keys = Object.keys(movesFromStorage);
-
-    p_moves.innerText = keys;
+    p_moves.innerText = getMovesAsList();
     document.getElementById("input_move").value = "";
   }
 });

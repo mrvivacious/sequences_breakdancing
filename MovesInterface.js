@@ -1,7 +1,7 @@
 // CRUD
 
 function saveMove(move) {
-  let moves = getMovesAsDict(); // ???
+  let moves = getMovesAsDict(); // todo needs testing
 
   if (moves === null) {
     let initialMovesDict = { move: true };
