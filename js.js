@@ -8,6 +8,18 @@
 // basically, CRUD, and the data is the MOVES + COMBOS.
 //  ...only took us a few commits to figure this out...
 
+// Create a data interface for Moves
+// Refactor this file and combos.js to use the interface
+// [frontend] Save combos button
+// [frontend] ui layer to make moves/combos look like tiles
+//  + add an X in each tile to prompt deletion
+
+// What happens when user deletes a move that is saved
+//  in a combo? Keep the combo? Delete the move from that combo?
+//  That would be an expensive search but I dont think any user will
+//  reach a number of combos where their system can't locate a move lmao
+
+// A way for user to create and add their own combo (comma separated moves format)
 // Save combos to local storage
 // Pretty print moves and combos
 // Prevent users adding duplicates
@@ -26,17 +38,13 @@ setupLocalStorage();
 
 // TODO untested
 function setupLocalStorage() {
-  let movesFromStorage = localStorage.getItem("moves");
+  let moves = getMovesAsDict();
 
-  if (movesFromStorage === null) {
+  if (moves === null) {
     console.log("no moves");
   } else {
-    // https://stackoverflow.com/questions/23805377
-    movesFromStorage = JSON.parse(movesFromStorage);
-    let moves = Object.keys(movesFromStorage);
-
+    moves = getMovesAsList();
     document.getElementById("p_moves").innerText = moves;
-    console.log(movesFromStorage);
   }
 }
 
