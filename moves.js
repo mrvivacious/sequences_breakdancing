@@ -48,10 +48,6 @@ function setupLocalStorage() {
   }
 }
 
-function saveMoveToLocalStorage(aMove) {
-  saveMove(aMove);
-}
-
 let p_moves = document.getElementById("p_moves");
 let btn_save = document.getElementById("btn_save");
 
@@ -63,7 +59,7 @@ btn_save.addEventListener("click", () => {
     console.log(move);
 
     // get all moves and add this move to all moves and save
-    saveMoveToLocalStorage(move);
+    saveMove(move);
 
     p_moves.innerText = getMovesAsList();
     document.getElementById("input_move").value = "";
