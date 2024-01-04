@@ -3,7 +3,7 @@ function saveMove(move) {
   let moves = getMovesAsDict(); // todo needs testing
 
   if (moves === null) {
-    let initialMovesDict = { move: true };
+    let initialMovesDict = { [move]: true };
     setMovesWithDict(initialMovesDict);
   } else {
     moves[move] = true;
