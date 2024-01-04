@@ -4,7 +4,7 @@ function saveCombo(combo) {
   let combos = getCombosAsDict();
 
   if (combos === null) {
-    let initialComboDict = { combo: true };
+    let initialComboDict = { [combo]: true };
     setCombosWithDict(initialComboDict);
   } else {
     combos[combo] = true;

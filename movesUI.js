@@ -5,11 +5,6 @@
 // √ Save moves to local storage
 // √ Store move in a dictionary to make things easier
 
-// basically, CRUD, and the data is the MOVES + COMBOS.
-//  ...only took us a few commits to figure this out...
-
-// Create a data interface for Moves
-// Refactor this file and combos.js to use the interface
 // [frontend] Save combos button
 // [frontend] ui layer to make moves/combos look like tiles
 //  + add an X in each tile to prompt deletion
@@ -30,16 +25,15 @@
 // Export moves and combos as txt file? GitHub pages supports???
 
 // BONUS: Achievement system for moves added and combos saved (use a dictionary?)
-// put ads for moneti Yeah, right.
+// put ads for monie
 
-console.log("index.js: hi");
+console.log("movesUI.js: hi");
 
 let p_moves = document.getElementById("p_moves");
 let btn_save = document.getElementById("btn_save");
 
 setupLocalStorage();
 
-// TODO untested
 function setupLocalStorage() {
   let moves = getMovesAsDict();
 
