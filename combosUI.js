@@ -20,5 +20,7 @@ btn_generate.addEventListener("click", () => {
     combo.push(randomMove);
   }
 
-  p_combo.innerText = combo;
+  let listOfMoves = combo.toString()
+  let output = listOfMoves.replaceAll(',', ', ');
+  p_combo.innerText = output;
 });

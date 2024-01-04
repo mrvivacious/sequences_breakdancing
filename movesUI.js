@@ -32,7 +32,10 @@
 // BONUS: Achievement system for moves added and combos saved (use a dictionary?)
 // put ads for moneti Yeah, right.
 
-console.log("js loaded");
+console.log("index.js: hi");
+
+let p_moves = document.getElementById("p_moves");
+let btn_save = document.getElementById("btn_save");
 
 setupLocalStorage();
 
@@ -43,13 +46,11 @@ function setupLocalStorage() {
   if (moves === null) {
     console.log("no moves");
   } else {
-    moves = getMovesAsList();
-    document.getElementById("p_moves").innerText = moves;
+    let listOfMoves = getMovesAsList();
+    let output = listOfMoves.toString().replaceAll(',', ', ');
+    p_moves.innerText = output;
   }
 }
-
-let p_moves = document.getElementById("p_moves");
-let btn_save = document.getElementById("btn_save");
 
 btn_save.addEventListener("click", () => {
   let input = document.getElementById("input_move");
@@ -61,7 +62,9 @@ btn_save.addEventListener("click", () => {
     // get all moves and add this move to all moves and save
     saveMove(move);
 
-    p_moves.innerText = getMovesAsList();
+    let listOfMoves = getMovesAsList();
+    let output = listOfMoves.toString().replaceAll(',', ', ');
+    p_moves.innerText = output;
     document.getElementById("input_move").value = "";
   }
 });
