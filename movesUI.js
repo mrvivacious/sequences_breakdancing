@@ -4,9 +4,9 @@
 // √ Load moves from local storage
 // √ Save moves to local storage
 // √ Store move in a dictionary to make things easier
+// √ Save combos button
 
-// [frontend] Save combos button
-// [frontend] ui layer to make moves/combos look like tiles
+// [frontend] ui to make moves/combos look like tiles
 //  + add an X in each tile to prompt deletion
 
 // What happens when user deletes a move that is saved

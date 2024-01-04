@@ -21,7 +21,7 @@ function setupLocalStorage() {
 function prettyPrint(listOfCombos) {
   let output = '';
   for (let i = 0, n = listOfCombos.length; i < n; i++) {
-    output += listOfCombos[i] + '<br><br>'
+    output += '<p>' + listOfCombos[i] + '</p>'
   }
 
   return output;
